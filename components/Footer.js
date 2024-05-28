@@ -1,20 +1,21 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
 	return (
 		<div className="bg-gray-100 shadow-md md:absolute bottom-0 w-full">
 			<footer className="text-gray-600 body-font">
 				<div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-					<a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-						<Image
+					<Link href={'/about'} className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 cursor-pointer">
+					<Image
 							src="/RFID.png"
 							alt="RFID logo"
 							width={50}
 							height={50}
 						></Image>
 						<span className="ml-3 text-xl">RFID-Direct</span>
-					</a>
+					</Link>
 					<p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
 						© 2024 CodeCraft Crew
 					</p>
