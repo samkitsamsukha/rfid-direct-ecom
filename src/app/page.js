@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Home() {
 	return (
 		<>
-			<div className="mx-32 mt-10">
+			<div className="mx-4 md:mx-32 mt-10">
 				<h1 className="text-4xl font-semibold text-indigo-800 p-2">Welcome, Customer</h1>
 				<p className="text-xl p-2">RFID-Direct puts forward multiple products based on the RFID technology at a very affordable price and guarantees good quality along with robust security. Click on Check Out to get a detailed view of the product and choose the different variants and colours.</p>
 			</div>
@@ -31,7 +31,7 @@ export default function Home() {
 										className="w-4 h-4 ml-2"
 										viewBox="0 0 24 24"
 										stroke="currentColor"
-										stroke-width="2"
+										strokeWidth="2"
 										fill="none"
 										strokeLinecap="round"
 										strokeLinejoin="round"
@@ -63,7 +63,7 @@ export default function Home() {
 										className="w-4 h-4 ml-2"
 										viewBox="0 0 24 24"
 										stroke="currentColor"
-										stroke-width="2"
+										strokeWidth="2"
 										fill="none"
 										strokeLinecap="round"
 										strokeLinejoin="round"
@@ -95,7 +95,7 @@ export default function Home() {
 										className="w-4 h-4 ml-2"
 										viewBox="0 0 24 24"
 										stroke="currentColor"
-										stroke-width="2"
+										strokeWidth="2"
 										fill="none"
 										strokeLinecap="round"
 										strokeLinejoin="round"

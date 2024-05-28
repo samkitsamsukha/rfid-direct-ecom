@@ -30,11 +30,11 @@ const Navbar = () => {
 			</div>
 			</Link>
 			<div className="nav mx-6">
-				<ul className="flex flex-col justify-start md:flex-row items-center space-x-10">
+				<ul className="flex justify-center flex-row items-center space-x-5">
 					<Link href={"/contact"}>
 						<li className="text-xl">Contact</li>
 					</Link>
-					<Link href={"/about"}>
+					<Link className="flex w-full items-center justify-center" href={"/about"}>
 						<li className="text-xl">About</li>
 					</Link>
 					<button
@@ -48,7 +48,7 @@ const Navbar = () => {
 			</div>
 			<div
 				ref={ref}
-				className="w-96 h-[80vh] sidecart absolute top-0 right-0 z-10 shadow-md rounded-bl-2xl rounded-tl-2xl my-20 bg-pink-100 p-10 transform transition-transform translate-x-full duration-300 flex flex-col"
+				className=" w-96 h-[80vh] sidecart absolute top-0 right-0 z-10 shadow-md rounded-bl-2xl rounded-tl-2xl my-20 bg-pink-100 p-10 transform transition-transform translate-x-full duration-300 flex flex-col"
 			>
 				<h2 className="text-3xl font-bold text-center">Shopping Cart</h2>
 				<span
