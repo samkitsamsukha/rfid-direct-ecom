@@ -9,8 +9,12 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { FaCircleMinus } from "react-icons/fa6";
 import { MdShoppingCartCheckout } from "react-icons/md";
 import { RiDeleteBin6Fill } from "react-icons/ri";
+import { useContext } from "react";
+import { CartContext } from "../src/context/CartContext";
 
 const Navbar = () => {
+	const { cart, addToCart, removeFromCart, clearCart, subTotal} = useContext(CartContext);
+	// console.log(cart, addToCart, removeFromCart, clearCart, subTotal)
 	const toggleCart = () => {
 		if (ref.current.classList.contains("translate-x-full")) {
 			ref.current.classList.remove("translate-x-full");
@@ -58,28 +62,37 @@ const Navbar = () => {
 					<IoCloseSharp />
 				</span>
 				<ol className="list-decimal py-5">
-					<li className="">
+					{Object.keys(cart).length == 0 && <div className="my-4 text-base font-semibold">
+							Your cart is empty.
+						</div>}
+					{Object.keys(cart).map((k) => {return <li className="" key={k}>
 						<div className="item flex my-5">
-							<div className="w-2/3 font-semibold">1. RFID Secure Locker</div>
+							<div className="w-2/3 font-semibold">{cart[k].name}</div>
 							<div className="flex items-center justify-center w-1/3 font-semibold space-x-2">
 								<FaCircleMinus
+									onClick={() => {removeFromCart(k, 1, cart[k].price, cart[k].name, cart[k].size, cart[k].variant)}}
 									className="cursor-pointer text-pink-600"
 									size={15}
 								/>
-								<p>1</p>
+								<p>{cart[k].qty}</p>
 								<FaCirclePlus
+									onClick={() => {addToCart(k, 1, cart[k].price, cart[k].name, cart[k].size, cart[k].variant)}}
 									className="cursor-pointer text-pink-600"
 									size={15}
 								/>
 							</div>
 						</div>
-					</li>
+					</li>})}
 				</ol>
+				<div className="flex justify-between text-xl font-bold py-2 px-4 bg-pink-300 rounded">
+					<p>Total Amt</p>
+					<p>Rs. {subTotal}</p>
+				</div>
 				<button className="flex justify-center items-center text-center bg-pink-600 px-3 py-2 my-2 text-white font-semibold space-x-2 rounded-lg shadow-sm hover:bg-pink-500 duration-300">
 					<span>Checkout</span>
 					<MdShoppingCartCheckout size={20} />
 				</button>
-				<button className="flex justify-center items-center text-center bg-pink-600 px-3 py-2  text-white font-semibold space-x-2 rounded-lg shadow-sm hover:bg-pink-500 duration-300">
+				<button onClick={clearCart} className="flex justify-center items-center text-center bg-pink-600 px-3 py-2  text-white font-semibold space-x-2 rounded-lg shadow-sm hover:bg-pink-500 duration-300">
 					<span>Clear Cart</span>
 					<RiDeleteBin6Fill size={20}/>
 				</button>

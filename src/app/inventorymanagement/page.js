@@ -1,9 +1,38 @@
 "use client"
+
 import React from 'react'
 import { useRef } from 'react';
 import Image from 'next/image';
+import { useState } from "react";
+import { IoMdAlert } from "react-icons/io";
+import { MdVerified } from "react-icons/md";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+import { FaIndianRupeeSign } from "react-icons/fa6";
+
 
 const InventoryManagement = () => {
+
+	const { cart, addToCart, removeFromCart, clearCart, subTotal} = useContext(CartContext);
+
+	const [pin, setPin] = useState();
+	const [serviceability, setServiceability] = useState();
+
+	const checkServiceability = async () => {
+		//asynchronous function keeps running in the background
+		let pins = await fetch("http://localhost:3000/api/pincode"); // go to next line only after this fetching is complete
+		let pinJson = await pins.json(); // go to next line only after json conversion is complete
+		if (pinJson.includes(pin)) {
+			setServiceability(true);
+		} else {
+			setServiceability(false);
+		}
+	};
+
+	const onChangePin = (e) => {
+		setPin(e.target.value); //
+	};
+
   const turnPink = () => {
 		if (ref.current.classList.contains("text-gray-500")) {
 			ref.current.classList.remove("text-gray-500");
@@ -72,11 +101,17 @@ const InventoryManagement = () => {
 									</div>
 								</div>
 							</div>
-							<div className="flex">
+							<div className="flex justify-between">
 								<span className="title-font font-medium text-2xl text-gray-900">
-									Rs. 2000
+									Rs. 1499
 								</span>
-								<button className="flex ml-auto text-white bg-pink-600 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+								<div className="flex space-x-4">
+								<button className="flex ml-auto text-white bg-pink-600 border-0 md:py-2 p-2 md:px-6 focus:outline-none hover:bg-pink-400 duration-300 rounded">
+									Buy Now
+								</button>
+								<button 
+									onClick={() => {(addToCart('scan', 1, 1499, 'Inventory Management System', 'SM', 'brown'))}} 
+									className="flex ml-auto text-white bg-pink-600 border-0 md:py-2 p-2 md:px-6 focus:outline-none hover:bg-pink-400 duration-300 rounded">
 									Add to Cart
 								</button>
 								<button
@@ -95,7 +130,34 @@ const InventoryManagement = () => {
 										<path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
 									</svg>
 								</button>
+								</div>
 							</div>
+							<div className="pincode flex space-x-2 justify-start mt-4">
+								<input
+									onChange={onChangePin}
+									className="px-2 w-2/3 shadow-sm border-[1px] border-black text-sm bg-pink-50 rounded"
+									type="text"
+									placeholder="Enter your pincode to check serviceability"
+								/>
+								<button
+									onClick={checkServiceability}
+									className="flex shadow-sm ml-auto text-white bg-pink-600 border-0 text-sm p-2 md:py-2 md:px-6 focus:outline-none hover:bg-pink-400 duration-300 rounded"
+								>
+									Check Pincode
+								</button>
+							</div>
+							{!serviceability && serviceability != null && (
+								<div className="flex justify-center items-center space-x-2 text-white bg-red-700 p-2 w-fit mt-4 rounded">
+									<IoMdAlert />{" "}
+									<p>Sorry, We do not deliver to this location yet.</p>
+								</div>
+							)}
+							{serviceability && serviceability != null && (
+								<div className="flex justify-center items-center space-x-2 text-white bg-green-700 p-2 w-fit mt-4 rounded">
+									<MdVerified />{" "}
+									<p>Success, Delivery to this pincode is available</p>
+								</div>
+							)}
 						</div>
 					</div>
 				</div>
