@@ -14,6 +14,13 @@ import { MdShoppingCartCheckout } from "react-icons/md";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { useContext } from "react";
 import { CartContext } from "../src/context/CartContext";
+import { MdAccountCircle } from "react-icons/md";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const Navbar = () => {
 	const { cart, addToCart, removeFromCart, clearCart, subTotal } =
@@ -30,7 +37,7 @@ const Navbar = () => {
 	};
 	const ref = useRef();
 	return (
-		<div className="flex flex-col md:flex-row md:justify-between justify-center items-center bg-white py-2 shadow-md">
+		<div className="flex flex-col md:flex-row md:justify-between justify-center items-center bg-white py-2 shadow-md overflow-hidden">
 			<Link href={"/"}>
 				<div className="logo mx-5 flex justify-start items-center space-x-4 text-3xl font-semibold">
 					<Image src="/RFID.png" height={60} width={60} alt="RFID logo"></Image>
@@ -39,7 +46,10 @@ const Navbar = () => {
 			</Link>
 			<div className="nav mx-6">
 				<ul className="flex font-semibold justify-center flex-row items-center space-x-8">
-					<Link href={"/contact"} className="flex font-semibold space-x-2 items-center cursor-pointer">
+					<Link
+						href={"/contact"}
+						className="flex font-semibold space-x-2 items-center cursor-pointer"
+					>
 						<span className="">Contact</span>
 						<IoMdCall size={20} />
 					</Link>
@@ -48,7 +58,7 @@ const Navbar = () => {
 						href={"/about"}
 					>
 						<span className="">About</span>
-						<MdGroups size={25}/>
+						<MdGroups size={25} />
 					</Link>
 					<button
 						onClick={toggleCart}
@@ -57,12 +67,21 @@ const Navbar = () => {
 						<span>Cart</span>
 						<IoMdCart size={20} />
 					</button>
-					<button
-						className="flex font-semibold space-x-2 cursor-pointer items-center text-pink-500"
-					>
-						<span>Favourites</span>
-						<FaHeart size={20}/>
-					</button>
+					<TooltipProvider>
+						<Tooltip>
+							<TooltipTrigger>
+								<Link href={"/login"}>
+									<MdAccountCircle size={40} color="#e91e63" />
+								</Link>
+							</TooltipTrigger>
+							<TooltipContent>
+								<button className="flex mr-6 font-semibold space-x-2 cursor-pointer items-center text-pink-500">
+									<span>Favourites</span>
+									<FaHeart size={20} />
+								</button>
+							</TooltipContent>
+						</Tooltip>
+					</TooltipProvider>
 				</ul>
 			</div>
 			<div
@@ -127,8 +146,11 @@ const Navbar = () => {
 					<p>Total Amt</p>
 					<p>Rs. {subTotal}</p>
 				</div>
-				<Link href={'/checkout'}>
-					<button onClick={toggleCart} className="flex justify-center items-center text-center bg-pink-600 px-3 py-2 my-2 text-white font-semibold space-x-2 rounded-lg shadow-sm hover:bg-pink-500 duration-300 w-full">
+				<Link href={"/checkout"}>
+					<button
+						onClick={toggleCart}
+						className="flex justify-center items-center text-center bg-pink-600 px-3 py-2 my-2 text-white font-semibold space-x-2 rounded-lg shadow-sm hover:bg-pink-500 duration-300 w-full"
+					>
 						<span>Checkout</span>
 						<MdShoppingCartCheckout size={20} />
 					</button>
