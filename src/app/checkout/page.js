@@ -15,7 +15,7 @@ const Checkout = () => {
   const { cart, addToCart, removeFromCart, clearCart, subTotal } = useContext(CartContext);
 
 	return (
-		<div className="container px-32">
+		<div className="container px-32 mb-32">
 			<h1 className="text-3xl font-bold my-8 text-center">Checkout</h1>
 			<h2 className="font-semibold text-xl">1. Delivery Details</h2>
 			<div className="mx-auto flex my-4 space-x-6">

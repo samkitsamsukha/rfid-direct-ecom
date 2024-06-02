@@ -4,9 +4,9 @@ import Link from "next/link";
 
 const Footer = () => {
 	return (
-		<div className="bg-gray-100 shadow-md bottom-0 md:absolute  w-full">
+		<div className="bg-gray-200 shadow-md bottom-0 z-10 h-[80px] fixed w-full">
 			<footer className="text-gray-600 body-font">
-				<div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+				<div className="container px-5 py-4 mx-auto flex items-center sm:flex-row flex-col">
 					<Link href={'/about'} className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 cursor-pointer">
 					<Image
 							src="/RFID.png"
