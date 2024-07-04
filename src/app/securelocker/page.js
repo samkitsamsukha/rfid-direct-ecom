@@ -11,6 +11,7 @@ import { CartContext } from "../../context/CartContext";
 import { FaIndianRupeeSign } from "react-icons/fa6";
 import { Slide, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
 
 const SecureLocker = () => {
 	const { cart, addToCart, removeFromCart, clearCart, subTotal } =
@@ -99,6 +100,9 @@ const SecureLocker = () => {
 				<div className="container px-5 py-24 mx-auto flex flex-col space-y-10">
 					<div className="lg:w-4/5 mx-auto flex flex-wrap">
 						<Image
+							whileInView={{x: 0, opacity: 1}}
+							initial={{x: -100, opacity: 0}}
+							transition={{duration: 0.5}}
 							src="/securelocker.jpg"
 							alt="RFID Secure Locker"
 							width={400}
@@ -106,20 +110,36 @@ const SecureLocker = () => {
 							className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
 						></Image>
 						<div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-							<h2 className="text-sm title-font text-gray-500 tracking-widest">
+							<motion.h2 
+								whileInView={{x: 0, opacity: 1}}
+								initial={{x: 100, opacity: 0}}
+								transition={{duration: 0.5}}
+								className="text-sm title-font text-gray-500 tracking-widest">
 								SECURITY
-							</h2>
-							<h1 className="text-gray-900 text-3xl title-font font-medium mb-5">
+							</motion.h2>
+							<motion.h1 
+								whileInView={{x: 0, opacity: 1}}
+								initial={{x: 100, opacity: 0}}
+								transition={{duration: 0.5}}
+								className="text-gray-900 text-3xl title-font font-medium mb-5">
 								RFID Secure Locker
-							</h1>
-							<p className="leading-relaxed">
+							</motion.h1>
+							<motion.p 
+								whileInView={{x: 0, opacity: 1}}
+								initial={{x: 100, opacity: 0}}
+								transition={{duration: 0.5}}
+								className="leading-relaxed">
 								RFID Enabled Secure Locker which has been built in such a way
 								that it can be opened/accessed only by tapping the smart card.
 								This feature makes it robust and it allows great safety and
 								performance. The build quality is amazing and is absolutely
 								reliable.
-							</p>
-							<div className="flex mt-6 items-center jus pb-5 border-b-2 border-gray-100 mb-5">
+							</motion.p>
+							<motion.div 
+								whileInView={{x: 0, opacity: 1}}
+								initial={{x: 100, opacity: 0}}
+								transition={{duration: 0.5}}
+								className="flex mt-6 items-center jus pb-5 border-b-2 border-gray-100 mb-5">
 								<div className="flex">
 									<span className="mr-3">Color</span>
 									<button className="border-2 border-gray-300  bg-amber-950 rounded-full w-6 h-6 focus:outline-none"></button>
@@ -150,8 +170,12 @@ const SecureLocker = () => {
 										</span>
 									</div>
 								</div>
-							</div>
-							<div className="flex justify-between">
+							</motion.div>
+							<motion.div 
+								whileInView={{y: 0, opacity: 1}}
+								initial={{y: 100, opacity: 0}}
+								transition={{duration: 0.5}}
+								className="flex justify-between">
 								<span className="flex items-center justify-center title-font font-medium text-2xl text-gray-900">
 									<div className="flex items-center  mt-[5px]">
 										<FaIndianRupeeSign size={20} />
@@ -197,8 +221,12 @@ const SecureLocker = () => {
 										</svg>
 									</button>
 								</div>
-							</div>
-							<div className="pincode flex space-x-2 justify-start mt-4">
+							</motion.div>
+							<motion.div 
+								whileInView={{y: 0, opacity: 1}}
+								initial={{y: 100, opacity: 0}}
+								transition={{duration: 0.5}}
+								className="pincode flex space-x-2 justify-start mt-4">
 								<input
 									onChange={onChangePin}
 									className="px-2 w-2/3 shadow-sm border-[1px] border-black text-sm bg-pink-50 rounded"
@@ -211,15 +239,23 @@ const SecureLocker = () => {
 								>
 									Check Pincode
 								</button>
-							</div>
+							</motion.div>
 						</div>
 					</div>
 					<div className="lg:w-4/5 mx-auto flex flex-col space-y-1">
-						<div className="text-2xl font-semibold text-black">
+						<motion.div 
+							whileInView={{x: 0, opacity: 1}}
+							initial={{x: -100, opacity: 0}}
+							transition={{duration: 0.5}}
+							className="text-2xl font-semibold text-black">
 							Product Details
-						</div>
-						<div className="text-xl font-semibold text-black py-2">Key Features</div>
-						<div className="text-base">
+						</motion.div>
+						<motion.div whileInView={{x: 0, opacity: 1}}
+							initial={{x: -100, opacity: 0}}
+							transition={{duration: 0.5}} className="text-xl font-semibold text-black py-2">Key Features</motion.div>
+						<motion.div whileInView={{x: 0, opacity: 1}}
+							initial={{x: -100, opacity: 0}}
+							transition={{duration: 0.5}} className="text-base">
 							<ul>
 								<li><span className="font-semibold text-pink-700">RFID-Technology:</span> Effortlessly scan and authenticate RFID cards.
 								</li>
@@ -236,13 +272,21 @@ const SecureLocker = () => {
 								<li><span className="font-semibold text-pink-700">Customizable UID: </span> Easily update the authorized RFID card UID in the code.
 								</li>
 							</ul>
-						</div>
-						<div className="text-xl font-semibold text-black py-2">Specifications</div>
-						<div>
+						</motion.div>
+						<motion.div whileInView={{x: 0, opacity: 1}}
+							initial={{x: -100, opacity: 0}}
+							transition={{duration: 0.5}} className="text-xl font-semibold text-black py-2">Specifications</motion.div>
+						<motion.div whileInView={{x: 0, opacity: 1}}
+							initial={{x: -100, opacity: 0}}
+							transition={{duration: 0.5}}>
 							Power Supply: 12V DC (via USB or external adapter)
-						</div>
-						<div className="text-xl font-semibold text-black py-2">Package Includes</div>
-						<div>
+						</motion.div>
+						<motion.div whileInView={{x: 0, opacity: 1}}
+							initial={{x: -100, opacity: 0}}
+							transition={{duration: 0.5}} className="text-xl font-semibold text-black py-2">Package Includes</motion.div>
+						<motion.div whileInView={{x: 0, opacity: 1}}
+							initial={{x: -100, opacity: 0}}
+							transition={{duration: 0.5}}>
 							<table cellPadding={2} className="border border-gray-400">
 								<thead>
 								<tr>
@@ -269,22 +313,30 @@ const SecureLocker = () => {
 								</tr>
 								</tbody>
 							</table>
-						</div>
-						<div className="text-xl font-semibold text-black py-2">Usage Instructions</div>
-						<div>
+						</motion.div>
+						<motion.div whileInView={{x: 0, opacity: 1}}
+							initial={{x: -100, opacity: 0}}
+							transition={{duration: 0.5}} className="text-xl font-semibold text-black py-2">Usage Instructions</motion.div>
+						<motion.div whileInView={{x: 0, opacity: 1}}
+							initial={{x: -100, opacity: 0}}
+							transition={{duration: 0.5}}>
 						1. Power On: Connect the system to a 12V power supply using the provided DC Barrel cable.
 <br/>2. Present RFID Card: Place the authorized RFID card near the reader to unlock.
 <br/>3. Access Granted: Green LED lights up, and the solenoid unlocks for 1 second.
 <br/>4. Access Denied: Red LED lights up, and the buzzer sounds.
 <br/>5. Reset Options: The system automatically resets after each card scan. Use the physical reset switch if needed. 
-						</div>
-						<div className="text-xl font-semibold text-black py-2">Benefits</div>
-						<div>
+						</motion.div>
+						<motion.div whileInView={{x: 0, opacity: 1}}
+							initial={{x: -100, opacity: 0}}
+							transition={{duration: 0.5}} className="text-xl font-semibold text-black py-2">Benefits</motion.div>
+						<motion.div whileInView={{x: 0, opacity: 1}}
+							initial={{x: -100, opacity: 0}}
+							transition={{duration: 0.5}}>
 						Enhanced Security: Reliable access control with authorized RFID cards.
 <br/>Smooth Operation: Automated reset ensures no component gets stuck.
 <br/>User-Friendly: Simple setup and operation with visual and audible feedback.
 <br/>Versatile: Suitable for various secure storage applications.
-						</div>
+						</motion.div>
 					</div>
 						
 					</div>

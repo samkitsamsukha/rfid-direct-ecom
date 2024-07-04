@@ -105,23 +105,23 @@ const Navbar = () => {
 			</Link>
 			<div className="nav mx-6">
 				<ul className="flex font-semibold justify-center flex-row items-center space-x-8">
-					<a href="https://v2.akord.com/vaults/active/ozDoqhyA-RsomDmSZJFWvXFUhXv2gSkj42Zznoen7mc/assets/folders/f67e440c-a6c3-482d-8707-cd187bc9e105" target="_blank" className="hidden md:flex justify-center items-center gap-2">
+					<a href="https://v2.akord.com/vaults/active/ozDoqhyA-RsomDmSZJFWvXFUhXv2gSkj42Zznoen7mc/assets/folders/f67e440c-a6c3-482d-8707-cd187bc9e105" target="_blank" className="hidden md:flex justify-center items-center gap-2 px-0 md:px-2 py-1 rounded-lg hover:bg-gray-200 duration-300">
 						BlockStore
 						<SiBlockchaindotcom />
 					</a>
-					<a href="https://www.ethvm.com/address/0xF584c28EcA7407C87787a4654e440e2564375940" target="_blank" className="hidden md:flex justify-center items-center gap-2">
+					<a href="https://www.ethvm.com/address/0xF584c28EcA7407C87787a4654e440e2564375940" target="_blank" className="hidden md:flex justify-center items-center gap-2 px-0 md:px-2 py-1 rounded-lg hover:bg-gray-200 duration-300">
 						Transact
 						<TbTransactionBitcoin />
 					</a>
 					<Link
 						href={"/contact"}
-						className="flex font-semibold space-x-2 items-center cursor-pointer"
+						className="flex font-semibold space-x-2 items-center cursor-pointer px-0 md:px-2 py-1 rounded-lg hover:bg-gray-200 duration-300"
 					>
 						<span className="">Contact</span>
 						<IoMdCall size={20} />
 					</Link>
 					<Link
-						className="flex font-semibold  w-full items-center space-x-2"
+						className="flex font-semibold  w-full items-center space-x-2 px-0 md:px-2 py-1 rounded-lg hover:bg-gray-200 duration-300"
 						href={"/about"}
 					>
 						<span className="">About</span>
@@ -136,7 +136,7 @@ const Navbar = () => {
 					</Link> */}
 					<Drawer>
 						<DrawerTrigger className="flex font-semibold space-x-2 items-center cursor-pointer">
-							<div className="flex font-semibold space-x-2 text-black items-center cursor-pointer">
+							<div className="flex font-semibold space-x-2 text-black items-center cursor-pointer px-0 md:px-2 py-1 rounded-lg hover:bg-gray-200 duration-300">
 								<span>Cart</span>
 								<IoMdCart size={20} />
 							</div>

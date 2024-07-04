@@ -54,12 +54,9 @@ const Signup = () => {
 							
 						</div>
 
-						<button
-							type="submit"
-							className="bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-md py-2 px-4 w-full"
-						>
-							Sign Up
-						</button>
+						<Link href={'/'} className="flex items-center justify-center bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-md py-2 px-4 w-full">
+							Signup
+						</Link>
 					</form>
 
 					<div className="mt-6 text-pink-500 text-center">

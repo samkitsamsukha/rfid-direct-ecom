@@ -1,14 +1,28 @@
+"use client"
 import Link from "next/link";
+import { motion } from "framer-motion"
 
 export default function Home() {
 	return (
 		<>
 			<div className="mx-4 md:mx-32 mt-10">
-				<h1 className="text-4xl font-semibold text-indigo-800 p-2">Welcome, Customer</h1>
-				<p className="text-xl p-2">RFID-Direct puts forward multiple products based on the RFID technology at a very affordable price and guarantees good quality along with robust security. Click on Check Out to get a detailed view of the product and choose the different variants and colours.</p>
+				<motion.h1 
+					whileInView={{x: 0, opacity: 1}}
+					initial={{x: -100, opacity: 0}}
+					transition={{duration: 0.5}}
+					className="text-4xl font-semibold text-indigo-800 p-2">Welcome, Customer</motion.h1>
+				<motion.p
+					whileInView={{x: 0, opacity: 1}}
+					initial={{x: -100, opacity: 0}}
+					transition={{duration: 0.5}}
+					className="text-xl p-2">RFID-Direct puts forward multiple products based on the RFID technology at a very affordable price and guarantees good quality along with robust security. Click on Check Out to get a detailed view of the product and choose the different variants and colours.</motion.p>
 			</div>
 			<section className="text-gray-600 body-font">
-				<div className="container px-5 py-12 mx-auto">
+				<motion.div 
+					whileInView={{y: 0, opacity: 1}}
+					initial={{y: 100, opacity: 0}}
+					transition={{duration: 0.5}}
+					className="container px-5 py-12 mx-auto">
 					<div className="flex flex-wrap -m-4">
 						<div className="p-4 lg:w-1/3">
 							<div className="h-full bg-green-100 shadow-md bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
@@ -107,7 +121,7 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-				</div>
+				</motion.div>
 			</section>
 		</>
 	);
