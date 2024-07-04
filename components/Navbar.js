@@ -259,6 +259,16 @@ const Navbar = () => {
 					</TooltipProvider>
 				</ul>
 			</div>
+			<div className="md:hidden flex space-x-4">
+			<a href="https://v2.akord.com/vaults/active/ozDoqhyA-RsomDmSZJFWvXFUhXv2gSkj42Zznoen7mc/assets/folders/f67e440c-a6c3-482d-8707-cd187bc9e105" target="_blank" className="md:hidden flex justify-center items-center gap-2 px-0 md:px-2 py-1 rounded-lg hover:bg-gray-200 duration-300 font-semibold">
+						BlockStore
+						<SiBlockchaindotcom />
+					</a>
+					<a href="https://www.ethvm.com/address/0xF584c28EcA7407C87787a4654e440e2564375940" target="_blank" className="md:hidden flex justify-center items-center gap-2 px-0 md:px-2 py-1 rounded-lg hover:bg-gray-200 duration-300 font-semibold">
+						Transact
+						<TbTransactionBitcoin />
+					</a>
+			</div>
 
 			{/* <div
 				ref={ref}
