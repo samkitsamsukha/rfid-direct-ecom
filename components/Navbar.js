@@ -35,6 +35,8 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { FaIndianRupeeSign } from "react-icons/fa6";
+import { SiBlockchaindotcom } from "react-icons/si";
+import { TbTransactionBitcoin } from "react-icons/tb";
 
 const Navbar = () => {
 	const { cart, addToCart, removeFromCart, clearCart, subTotal } =
@@ -103,6 +105,14 @@ const Navbar = () => {
 			</Link>
 			<div className="nav mx-6">
 				<ul className="flex font-semibold justify-center flex-row items-center space-x-8">
+					<a href="https://v2.akord.com/vaults/active/ozDoqhyA-RsomDmSZJFWvXFUhXv2gSkj42Zznoen7mc/assets/folders/f67e440c-a6c3-482d-8707-cd187bc9e105" target="_blank" className="hidden md:flex justify-center items-center gap-2">
+						BlockStore
+						<SiBlockchaindotcom />
+					</a>
+					<a href="https://v2.akord.com/vaults/active/ozDoqhyA-RsomDmSZJFWvXFUhXv2gSkj42Zznoen7mc/assets/folders/f67e440c-a6c3-482d-8707-cd187bc9e105" target="_blank" className="hidden md:flex justify-center items-center gap-2">
+						Transact
+						<TbTransactionBitcoin />
+					</a>
 					<Link
 						href={"/contact"}
 						className="flex font-semibold space-x-2 items-center cursor-pointer"

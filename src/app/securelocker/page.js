@@ -96,7 +96,7 @@ const SecureLocker = () => {
 	return (
 		<div>
 			<section className="text-gray-600 body-font overflow-hidden">
-				<div className="container px-5 py-24 mx-auto">
+				<div className="container px-5 py-24 mx-auto flex flex-col space-y-10">
 					<div className="lg:w-4/5 mx-auto flex flex-wrap">
 						<Image
 							src="/securelocker.jpg"
@@ -214,7 +214,80 @@ const SecureLocker = () => {
 							</div>
 						</div>
 					</div>
-				</div>
+					<div className="lg:w-4/5 mx-auto flex flex-col space-y-1">
+						<div className="text-2xl font-semibold text-black">
+							Product Details
+						</div>
+						<div className="text-xl font-semibold text-black py-2">Key Features</div>
+						<div className="text-base">
+							<ul>
+								<li><span className="font-semibold text-pink-700">RFID-Technology:</span> Effortlessly scan and authenticate RFID cards.
+								</li>
+								<li><span className="font-semibold text-pink-700">Automatic Software Reset: </span> Ensures all components return to their initial states, preventing any operation hiccups.
+								</li>
+								<li><span className="font-semibold text-pink-700">Physical Reset Switch: </span> Provides a manual backup for resetting the system.
+								</li>
+								<li><span className="font-semibold text-pink-700">Secure Access: </span> Only pre-authorized RFID cards can activate the relay, unlocking the solenoid.
+								</li>
+								<li><span className="font-semibold text-pink-700">Visual and Audible Indicators: </span> Green LED and buzzer for access granted, red LED and buzzer for access denied.
+								</li>
+								<li><span className="font-semibold text-pink-700">Compact and Durable Design: </span> Built to fit seamlessly into cupboards and other storage solutions. 
+								</li>
+								<li><span className="font-semibold text-pink-700">Customizable UID: </span> Easily update the authorized RFID card UID in the code.
+								</li>
+							</ul>
+						</div>
+						<div className="text-xl font-semibold text-black py-2">Specifications</div>
+						<div>
+							Power Supply: 12V DC (via USB or external adapter)
+						</div>
+						<div className="text-xl font-semibold text-black py-2">Package Includes</div>
+						<div>
+							<table cellPadding={2} className="border border-gray-400">
+								<thead>
+								<tr>
+									<th>Item</th>
+									<th className="border border-gray-400 px-4">Quantity</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td className="border border-gray-400 px-4">RFID Access Control System (assembled)</td>
+									<td className="border border-gray-400 px-4">1</td>
+								</tr>
+								<tr>
+									<td className="border border-gray-400 px-4">Authorized RFID Card</td>
+									<td className="border border-gray-400 px-4">1</td>
+								</tr>
+								<tr>
+									<td className="border border-gray-400 px-4">USB Power Cable</td>
+									<td className="border border-gray-400 px-4">1</td>
+								</tr>
+								<tr>
+									<td className="border border-gray-400 px-4">User Manual</td>
+									<td className="border border-gray-400 px-4">1</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+						<div className="text-xl font-semibold text-black py-2">Usage Instructions</div>
+						<div>
+						1. Power On: Connect the system to a 12V power supply using the provided DC Barrel cable.
+<br/>2. Present RFID Card: Place the authorized RFID card near the reader to unlock.
+<br/>3. Access Granted: Green LED lights up, and the solenoid unlocks for 1 second.
+<br/>4. Access Denied: Red LED lights up, and the buzzer sounds.
+<br/>5. Reset Options: The system automatically resets after each card scan. Use the physical reset switch if needed. 
+						</div>
+						<div className="text-xl font-semibold text-black py-2">Benefits</div>
+						<div>
+						Enhanced Security: Reliable access control with authorized RFID cards.
+<br/>Smooth Operation: Automated reset ensures no component gets stuck.
+<br/>User-Friendly: Simple setup and operation with visual and audible feedback.
+<br/>Versatile: Suitable for various secure storage applications.
+						</div>
+					</div>
+						
+					</div>
 			</section>
 			<ToastContainer />
 		</div>
