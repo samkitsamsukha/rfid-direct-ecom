@@ -23,20 +23,32 @@ import {
 } from "@/components/ui/tooltip";
 import { Slide, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+	Drawer,
+	DrawerClose,
+	DrawerContent,
+	DrawerDescription,
+	DrawerFooter,
+	DrawerHeader,
+	DrawerTitle,
+	DrawerTrigger,
+} from "@/components/ui/drawer";
+import { Button } from "@/components/ui/button";
+import { FaIndianRupeeSign } from "react-icons/fa6";
 
 const Navbar = () => {
 	const { cart, addToCart, removeFromCart, clearCart, subTotal } =
 		useContext(CartContext);
 	// console.log(cart, addToCart, removeFromCart, clearCart, subTotal)
-	const toggleCart = () => {
-		if (ref.current.classList.contains("hidden")) {
-			ref.current.classList.remove("hidden");
-			// ref.current.classList.add("translate-x-0");
-		} else if (!ref.current.classList.contains("hidden")) {
-			ref.current.classList.add("hidden");
-			// ref.current.classList.remove("translate-x-0");
-		}
-	};
+	// const toggleCart = () => {
+	// 	if (ref.current.classList.contains("hidden")) {
+	// 		ref.current.classList.remove("hidden");
+	// 		// ref.current.classList.add("translate-x-0");
+	// 	} else if (!ref.current.classList.contains("hidden")) {
+	// 		ref.current.classList.add("hidden");
+	// 		// ref.current.classList.remove("translate-x-0");
+	// 	}
+	// };
 
 	const addNotif = () => {
 		toast.success("Added to cart successfully", {
@@ -105,27 +117,115 @@ const Navbar = () => {
 						<span className="">About</span>
 						<MdGroups size={25} />
 					</Link>
+					{/* <Link
+						className="flex font-semibold  w-full items-center space-x-2"
+						href={'localhost:8051'}
+					>
+						<span className="">Chat</span>
+						<MdGroups size={25} />
+					</Link> */}
+					<Drawer>
+						<DrawerTrigger className="flex font-semibold space-x-2 items-center cursor-pointer">
+							<div className="flex font-semibold space-x-2 text-black items-center cursor-pointer">
+								<span>Cart</span>
+								<IoMdCart size={20} />
+							</div>
+						</DrawerTrigger>
+						<DrawerContent>
+							<DrawerHeader>
+								<DrawerTitle className="text-3xl font-bold text-center">
+									Shopping Cart
+								</DrawerTitle>
+								<div className="flex flex-col items-center justify-center">
+									<ol className="list-decimal py-5">
+										{Object.keys(cart).length === 0 && (
+											<div className="my-4 text-base font-semibold">
+												Your cart is empty.
+											</div>
+										)}
+										{Object.keys(cart).map((k) => (
+											<li key={k}>
+												<div className="item flex my-5">
+													<div className="w-2/3 font-semibold">
+														{cart[k].name}
+													</div>
+													<div className="flex items-center justify-center w-1/3 font-semibold space-x-2">
+														<FaCircleMinus
+															onClick={() => {
+																removeNotif();
+																removeFromCart(
+																	k,
+																	1,
+																	cart[k].price,
+																	cart[k].name,
+																	cart[k].size,
+																	cart[k].variant
+																);
+															}}
+															className="cursor-pointer text-pink-600"
+															size={15}
+														/>
+														<p>{cart[k].qty}</p>
+														<FaCirclePlus
+															onClick={() => {
+																addNotif();
+																addToCart(
+																	k,
+																	1,
+																	cart[k].price,
+																	cart[k].name,
+																	cart[k].size,
+																	cart[k].variant
+																);
+															}}
+															className="cursor-pointer text-pink-600"
+															size={15}
+														/>
+													</div>
+												</div>
+											</li>
+										))}
+									</ol>
+									<div className="flex justify-between text-xl font-bold py-2 px-4 bg-pink-300 rounded w-full md:w-1/3">
+										<p>Total Amount</p>
+										<div className="flex items-center space-x-1">
+											<FaIndianRupeeSign size={18} />
+											<p>{subTotal}</p>
+										</div>
+									</div>
+								</div>
+							</DrawerHeader>
+							<DrawerFooter className="md:flex md:flex-row flex-col justify-center items-center">
+								<Link href={"/checkout"} className="md:w-1/6 w-2/5">
+									<button className="flex justify-center items-center text-center bg-pink-600 px-3 py-2 my-2 text-white font-semibold space-x-2 rounded-lg shadow-sm hover:bg-pink-500 duration-300 w-full">
+										<span>Checkout</span>
+										<MdShoppingCartCheckout size={20} />
+									</button>
+								</Link>
+								<div className="md:w-1/6 w-2/5">
+									<button
+										onClick={() => {
+											cartClearNotif();
+											clearCart();
+										}}
+										className="flex justify-center items-center text-center bg-pink-600 px-3 py-2 text-white font-semibold space-x-2 rounded-lg shadow-sm hover:bg-pink-500 duration-300 w-full"
+									>
+										<span>Clear Cart</span>
+										<RiDeleteBin6Fill size={20} />
+									</button>
+								</div>
+								<DrawerClose className="md:w-1/6 w-2/5">
+									<button
+										variant="outline"
+										className="mt-2 md:mt-0 bg-pink-600 px-3 py-2 text-white font-semibold space-x-2 rounded-lg shadow-sm hover:bg-pink-500 hover:text-white duration-300 w-full"
+									>
+										Close Cart
+									</button>
+								</DrawerClose>
+							</DrawerFooter>
+						</DrawerContent>
+					</Drawer>
 
-					<TooltipProvider>
-						<Tooltip>
-							<TooltipTrigger>
-								<button
-									onClick={toggleCart}
-									className="flex font-semibold space-x-2 text-red-950 items-center cursor-pointer"
-								>
-									<span>Cart</span>
-									<IoMdCart size={20} />
-								</button>
-							</TooltipTrigger>
-							<TooltipContent className="flex flex-col">
-								<Link href={'/checkout'} className="p-2 hover:bg-gray-100 rounded-md duration-300">Checkout</Link>
-								<button className="p-2 hover:bg-gray-100 rounded-md duration-300" onClick={()=>{
-									cartClearNotif();
-									clearCart();
-								}}>Clear Cart</button>
-							</TooltipContent>
-						</Tooltip>
-					</TooltipProvider>
 					<TooltipProvider>
 						<Tooltip>
 							<TooltipTrigger>
@@ -149,7 +249,8 @@ const Navbar = () => {
 					</TooltipProvider>
 				</ul>
 			</div>
-			<div
+
+			{/* <div
 				ref={ref}
 				className=" w-96 h-[80vh] sidecart absolute top-0 right-0 z-10 shadow-md rounded-bl-2xl rounded-tl-2xl my-20 bg-pink-100 p-10 transform transition-transform duration-300 hidden flex flex-col"
 			>
@@ -232,7 +333,7 @@ const Navbar = () => {
 					<span>Clear Cart</span>
 					<RiDeleteBin6Fill size={20} />
 				</button>
-			</div>
+			</div> */}
 		</div>
 	);
 };

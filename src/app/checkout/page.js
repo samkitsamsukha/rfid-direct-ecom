@@ -9,13 +9,61 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { FaIndianRupeeSign } from "react-icons/fa6";
+import { Slide, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Head from "next/head";
+import Script from "next/script";
 
 const Checkout = () => {
+
+	const addNotif = () => {
+		toast.success("Added to cart successfully", {
+			position: "bottom-right",
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: false,
+			progress: undefined,
+			theme: "colored",
+			transition: Slide,
+		});
+	};
+
+	const removeNotif = () => {
+		toast.success("Removed from cart successfully", {
+			position: "bottom-right",
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: false,
+			progress: undefined,
+			theme: "colored",
+			transition: Slide,
+		});
+	};
+
+	const cartClearNotif = () => {
+		toast.success("Cart cleared successfully", {
+			position: "bottom-right",
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: false,
+			progress: undefined,
+			theme: "colored",
+			transition: Slide,
+		});
+	};
 
   const { cart, addToCart, removeFromCart, clearCart, subTotal } = useContext(CartContext);
 
 	return (
 		<div className="container px-32 mb-32">
+			<Head><meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/></Head>
+			<Script></Script>
 			<h1 className="text-3xl font-bold my-8 text-center">Checkout</h1>
 			<h2 className="font-semibold text-xl">1. Delivery Details</h2>
 			<div className="mx-auto flex my-4 space-x-6">
@@ -142,6 +190,7 @@ const Checkout = () => {
 													cart[k].size,
 													cart[k].variant
 												);
+												removeNotif();
 											}}
 											className="cursor-pointer text-pink-600"
 											size={15}
@@ -157,6 +206,7 @@ const Checkout = () => {
 													cart[k].size,
 													cart[k].variant
 												);
+												addNotif();
 											}}
 											className="cursor-pointer text-pink-600"
 											size={15}

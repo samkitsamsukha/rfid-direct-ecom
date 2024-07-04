@@ -33,7 +33,7 @@ const Login = () => {
 							/>
 						</div>
 
-						<div className="mb-4 flex justify-between items-center">
+						<div className="mb-4 flex md:flex-row flex-col md:justify-between items-center">
 							<div>
               <input
 								type="checkbox"
