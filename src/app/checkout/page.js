@@ -219,7 +219,7 @@ const Checkout = () => {
 				</div>
 			</div>
       <div>
-      <Link href={'/checkout'} className="flex justify-center items-center p-2">
+      <Link href={'https://rzp.io/l/Vs7RenS7Qd'} className="flex justify-center items-center p-2">
 					<button  className="flex justify-center items-center text-center bg-pink-600 px-3 py-2 my-2 text-white font-semibold space-x-2 rounded-lg shadow-sm hover:bg-pink-500 duration-300 w-fit  ">
 						<span>Pay</span>
 						<FaIndianRupeeSign size={15} />

@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 const Login = () => {
+
 	return (
 			<div className="flex justify-center items-center my-auto bg-gray-100 h-[82vh]">
 				<div className="mx-16 lg:mx-0 bg-white lg:p-18 md:p-26 sm:20 p-8 w-full lg:w-1/2 border-[1px] rounded-lg border-pink-600">
