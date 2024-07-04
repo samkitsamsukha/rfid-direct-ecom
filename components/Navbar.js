@@ -109,7 +109,7 @@ const Navbar = () => {
 						BlockStore
 						<SiBlockchaindotcom />
 					</a>
-					<a href="https://v2.akord.com/vaults/active/ozDoqhyA-RsomDmSZJFWvXFUhXv2gSkj42Zznoen7mc/assets/folders/f67e440c-a6c3-482d-8707-cd187bc9e105" target="_blank" className="hidden md:flex justify-center items-center gap-2">
+					<a href="https://www.ethvm.com/address/0xF584c28EcA7407C87787a4654e440e2564375940" target="_blank" className="hidden md:flex justify-center items-center gap-2">
 						Transact
 						<TbTransactionBitcoin />
 					</a>
