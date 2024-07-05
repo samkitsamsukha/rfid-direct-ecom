@@ -12,6 +12,7 @@ import { FaIndianRupeeSign } from "react-icons/fa6";
 import { Slide, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const SecureLocker = () => {
 	const { cart, addToCart, removeFromCart, clearCart, subTotal } =
@@ -185,9 +186,21 @@ const SecureLocker = () => {
 									</div>
 								</span>
 								<div className="flex space-x-4">
-									<button className="flex ml-auto text-white bg-pink-600 border-0 md:py-2 p-2 md:px-6 focus:outline-none hover:bg-pink-400 duration-300 rounded">
+									<Link href={'/checkout'}>
+									<button onClick={() => {
+											addNotif();
+											addToCart(
+												"locker",
+												1,
+												1999,
+												"RFID Secure Locker",
+												"SM",
+												"brown"
+											);
+										}} className="flex ml-auto text-white bg-pink-600 border-0 md:py-2 p-2 md:px-6 focus:outline-none hover:bg-pink-400 duration-300 rounded">
 										Buy Now
 									</button>
+									</Link>
 									<button
 										onClick={() => {
 											addNotif();
