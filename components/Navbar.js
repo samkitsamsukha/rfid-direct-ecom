@@ -236,10 +236,10 @@ const Navbar = () => {
 						</DrawerContent>
 					</Drawer>
 
-					<TooltipProvider>
+					<TooltipProvider >
 						<Tooltip>
 							<TooltipTrigger>
-								<Link href={"/login"}>
+								<Link className="hidden md:flex" href={"/login"}>
 									<MdAccountCircle size={40} color="#e91e63" />
 								</Link>
 							</TooltipTrigger>
